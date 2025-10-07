@@ -1,18 +1,17 @@
-<!doctype html>
-<html>
-  <head>
-  	<meta name="description" content="Cory Arcangel 252627. Last updated {{ site.time | date: '%d/%m/%y' }}. ">
-	<meta name="keywords" content="Cory Arcangel, art, stupid, tricks, Super Mario, Fucked, Runners, Rodeo, Screenagers">
-{% include meta.html %}
-{% include css.html %}
-    <title>{{ page.title }}</title>
-  </head>
-  <body>
-	Cory Arcangel
-    {{ content }}
-    
-    Hello
-    yup
-	©
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artworks</title>
+  <meta name="description" content="Cory Arcangel 252627. Last updated 07/10/25.">
+  <meta name="keywords" content="Cory Arcangel, art, stupid, tricks, Super Mario, Fucked, Runners, Rodeo, Screenagers">
+  <link rel="stylesheet" href="artworks.css">
+</head>
+<body>
+  <h1>Cory Arcangel</h1>
+  <p>Hello</p>
+  <p>yup</p>
+  <footer>©</footer>
+</body>
 </html>
+
