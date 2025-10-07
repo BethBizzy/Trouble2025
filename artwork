@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+  	<meta name="description" content="Cory Arcangel 252627. Last updated {{ site.time | date: '%d/%m/%y' }}. ">
+	<meta name="keywords" content="Cory Arcangel, art, stupid, tricks, Super Mario, Fucked, Runners, Rodeo, Screenagers">
+{% include meta.html %}
+{% include css.html %}
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+	Cory Arcangel
+    {{ content }}
+    
+    Hello
+    yup
+	©
+  </body>
+</html>
