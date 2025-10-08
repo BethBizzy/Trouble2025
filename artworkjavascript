@@ -1,0 +1,34 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyImages = document.querySelectorAll("img.lazy-image");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          // Set the src from data-src
+          img.src = img.getAttribute("data-src");
+
+          // When it finishes loading, add “loaded” class
+          img.onload = () => {
+            img.classList.add("loaded");
+          };
+
+          obs.unobserve(img);
+        }
+      });
+    });
+
+    lazyImages.forEach(img => {
+      observer.observe(img);
+    });
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    lazyImages.forEach(img => {
+      img.src = img.getAttribute("data-src");
+      img.onload = () => {
+        img.classList.add("loaded");
+      }
+    });
+  }
+});
