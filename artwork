@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Artworks</title>
-  <meta name="description" content="Cory Arcangel 252627. Last updated 07/10/25.">
-  <meta name="keywords" content="Cory Arcangel, art, stupid, tricks, Super Mario, Fucked, Runners, Rodeo, Screenagers">
-  <link rel="stylesheet" href="artworks.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Image Gallery</title>
+  <link rel="stylesheet" href="gallery.css" />
 </head>
 <body>
-  <h1>Cory Arcangel</h1>
-  <p>Hello</p>
-  <p>yup</p>
-  <footer>©</footer>
+  <header>
+    <h1>My Gallery</h1>
+    <p><a href="/">↩ Home</a></p>
+  </header>
+
+  <div class="thumbs">
+    <a href="images/full/example‑image.jpg">
+      <img
+        src="images/thumbs/example‑image-thumb.jpg"
+        alt="Example Image Title"
+        loading="lazy"
+        width="300"
+        height="300"
+      />
+    </a>
+  </div>
+
+  <!-- replicate the .thumbs block for each image -->
+
 </body>
 </html>
-
