@@ -1,0 +1,245 @@
+import os
+import html
+from pathlib import Path
+
+def generate_gallery_html(
+    output_html_path: str,
+    image_folder: str,
+    thumb_folder: str,
+    items: list,
+    page_title: str = "My Image Gallery"
+):
+    """
+    Generate an HTML gallery page.
+
+    Parameters:
+    - output_html_path: path to write the resulting HTML file
+    - image_folder: the folder (relative or absolute) where full images live (for href)
+    - thumb_folder: folder for thumbnail images (for src)
+    - items: a list of tuples (filename, title) — 
+        filename is the base name (same in full and thumb), title is display alt text
+    - page_title: title of the page
+    """
+    def img_block(filename, title):
+        # Escape HTML in title
+        esc_title = html.escape(title)
+        # Construct paths
+        full_path = os.path.join(image_folder, filename)
+        thumb_path = os.path.join(thumb_folder, filename)
+        # Return the gallery item block
+        return f'''
+    <div class="gallery-item">
+      <img
+        data-src="{full_path}"
+        alt="{esc_title}"
+        class="lazy-image"
+        width="300"
+        height="200"
+      />
+    </div>'''
+
+    # HTML head + start
+    html_top = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{html.escape(page_title)}</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+  <header>
+    <h1>{html.escape(page_title)}</h1>
+    <p><a href="/">↩ Home</a></p>
+  </header>
+
+  <main class="gallery">'''
+
+    # HTML bottom + script
+    html_bottom = """
+  </main>
+
+  <script src="gallery.js"></script>
+</body>
+</html>
+"""
+
+    # Build all image blocks
+    blocks = [img_block(fn, title) for fn, title in items]
+
+    # Join everything
+    full_html = html_top + "\n".join(blocks) + html_bottom
+
+    # Write to file
+    with open(output_html_path, "w", encoding="utf-8") as f:
+        f.write(full_html)
+
+    print(f"Generated gallery HTML at: {output_html_path}")
+
+
+
+def scan_images_and_titles(folder_path: str, thumb_subdir="thumbs", full_subdir="full"):
+    """
+    Scans a directory for image files and returns a list of (filename, title).
+
+    It expects:
+      folder_path/thumbs/   — thumbnails
+      folder_path/full/     — full‑size images
+
+    Filenames in both thumbs/ and full/ should match (same base name, e.g. image1.jpg).
+    Title is derived from the filename (without extension).
+
+    Returns list of (filename, title).
+    """
+    thumbs_dir = Path(folder_path) / thumb_subdir
+    # List image files in thumbs directory
+    items = []
+    for img_path in thumbs_dir.iterdir():
+        if img_path.is_file():
+            fn = img_path.name
+            # Derive title from filename (strip extension, replace hyphens/underscores)
+            title = img_path.stem.replace("-", " ").replace("_", " ").title()
+            items.append((fn, title))
+    return items
+
+
+if __name__ == "__main__":
+    # Configure these paths
+    base_folder = "/Users/beth_fiore/Desktop/Trouble Website Folder/images"  # adjust as needed
+    thumb_sub = "thumbs"
+    full_sub = "full"
+    output_file = os.path.join(base_folder, "gallery.html")
+
+    # Scan thumbnails and generate list
+    items = scan_images_and_titles(base_folder, thumb_subdir=thumb_sub, full_subdir=full_sub)
+
+    # The paths to use in HTML: relative paths from the HTML file’s location
+    thumb_rel = f"{thumb_sub}/"
+    full_rel = f"{full_sub}/"
+
+    # Generate HTML
+    generate_gallery_html(output_file, full_rel, thumb_rel, items, page_title="My Gallery")
+
+
+
+import os
+import html
+from pathlib import Path
+
+def generate_gallery_html(
+    output_html_path: str,
+    image_folder: str,
+    thumb_folder: str,
+    items: list,
+    page_title: str = "My Image Gallery"
+):
+    """
+    Generate an HTML gallery page.
+
+    Parameters:
+    - output_html_path: path to write the resulting HTML file
+    - image_folder: the folder (relative or absolute) where full images live (for href)
+    - thumb_folder: folder for thumbnail images (for src)
+    - items: a list of tuples (filename, title) — 
+        filename is the base name (same in full and thumb), title is display alt text
+    - page_title: title of the page
+    """
+    def img_block(filename, title):
+        # Escape HTML in title
+        esc_title = html.escape(title)
+        # Construct paths
+        full_path = os.path.join(image_folder, filename)
+        thumb_path = os.path.join(thumb_folder, filename)
+        # Return the gallery item block
+        return f'''
+    <div class="gallery-item">
+      <img
+        data-src="{full_path}"
+        alt="{esc_title}"
+        class="lazy-image"
+        width="300"
+        height="200"
+      />
+    </div>'''
+
+    # HTML head + start
+    html_top = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{html.escape(page_title)}</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+  <header>
+    <h1>{html.escape(page_title)}</h1>
+    <p><a href="/">↩ Home</a></p>
+  </header>
+
+  <main class="gallery">'''
+
+    # HTML bottom + script
+    html_bottom = """
+  </main>
+
+  <script src="gallery.js"></script>
+</body>
+</html>
+"""
+
+    # Build all image blocks
+    blocks = [img_block(fn, title) for fn, title in items]
+
+    # Join everything
+    full_html = html_top + "\n".join(blocks) + html_bottom
+
+    # Write to file
+    with open(output_html_path, "w", encoding="utf-8") as f:
+        f.write(full_html)
+
+    print(f"Generated gallery HTML at: {output_html_path}")
+
+
+
+def scan_images_and_titles(folder_path: str, thumb_subdir="thumbs", full_subdir="full"):
+    """
+    Scans a directory for image files and returns a list of (filename, title).
+
+    It expects:
+      folder_path/thumbs/   — thumbnails
+      folder_path/full/     — full‑size images
+
+    Filenames in both thumbs/ and full/ should match (same base name, e.g. image1.jpg).
+    Title is derived from the filename (without extension).
+
+    Returns list of (filename, title).
+    """
+    thumbs_dir = Path(folder_path) / thumb_subdir
+    # List image files in thumbs directory
+    items = []
+    for img_path in thumbs_dir.iterdir():
+        if img_path.is_file():
+            fn = img_path.name
+            # Derive title from filename (strip extension, replace hyphens/underscores)
+            title = img_path.stem.replace("-", " ").replace("_", " ").title()
+            items.append((fn, title))
+    return items
+
+
+if __name__ == "__main__":
+    # Configure these paths
+    base_folder = "/Users/beth_fiore/Desktop/Trouble Website Folder/images"  # adjust as needed
+    thumb_sub = "thumbs"
+    full_sub = "full"
+    output_file = os.path.join(base_folder, "gallery.html")
+
+    # Scan thumbnails and generate list
+    items = scan_images_and_titles(base_folder, thumb_subdir=thumb_sub, full_subdir=full_sub)
+
+    # The paths to use in HTML: relative paths from the HTML file’s location
+    thumb_rel = f"{thumb_sub}/"
+    full_rel = f"{full_sub}/"
+
+    # Generate HTML
+    generate_gallery_html(output_file, full_rel, thumb_rel, items, page_title="My Gallery")
