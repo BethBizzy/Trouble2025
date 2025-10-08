@@ -12,19 +12,22 @@
     <p><a href="/">↩ Home</a></p>
   </header>
 
-  <div class="thumbs">
-    <a href="images/full/example‑image.jpg">
+  <main class="gallery">
+    <!-- Example image block -->
+    <div class="gallery-item">
+      <!-- Use a low‑quality placeholder or blank — this avoids content jump -->
       <img
-        src="images/thumbs/example‑image-thumb.jpg"
-        alt="Example Image Title"
-        loading="lazy"
+        data-src="images/full/example.jpg"
+        alt="Example Title"
+        class="lazy-image"
         width="300"
-        height="300"
+        height="200"
       />
-    </a>
-  </div>
+    </div>
 
-  <!-- replicate the .thumbs block for each image -->
+    <!-- Duplicate that `.gallery-item` block for each of your images -->
+  </main>
 
+  <script src="gallery.js"></script>
 </body>
 </html>
