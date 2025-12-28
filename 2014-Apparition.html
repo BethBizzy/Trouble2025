@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apparition (2013)">
+  <title>Apparition</title>
+  <style>
+    body {
+      font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+      font-size: 16px;
+      margin: 24px;
+      color: #14007a;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #f5d8f3; }
+    .meta {
+      margin-top: 12px;
+      line-height: 1.5;
+      max-width: 900px;
+    }
+    img {
+    display: block;
+    height: 300px; /* fixed height */
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+  }
+    .label { font-weight: bold; }
+    .block { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Trouble :/</h1>
+  <a href="../">Home</a> &gt; <a href="../works/">Works</a>
+  <br><br>
+
+  <div class="meta">
+    <div class="block"><span class="label">Title:</span> Apparition</div>
+    
+    <div class="block"><span class="label">Year:</span> 2013</div>
+    <div class="block"><span class="label">Medium:</span> Performance, projection installation</div>
+    
+    <div class="block"><span class="label">Description:</span> Multimedia performance and projection installation.</div>
+    <div class="block">📍 Invisible Dog Gallery, Brooklyn, NY</div>
+    
+  </div>
+
+  <br><br>
+  <b>Imgs ↴</b><br>
+  <!-- PROMPT: add <img src="..." alt=""> tags here -->
+  <br><br>
+<script>
+// 1. Add ALL your image paths in this array:
+const images = [
+  "Maze2025.jpeg",
+  "Maze2025.jpeg",
+  "16.jpeg",
+  "1.jpeg",
+  "4.jpeg",
+  "KDC.jpeg",
+  "11.jpg",
+ 
+  // ADD ALL remaining images here...
+];
+
+// 2. Your width presets:
+const widths = [443, 225, 450, 218, 533, 300];
+
+// 3. Generate one <img> *per image* (not a fixed number)
+images.forEach(path => {
+  const img = document.createElement('img');
+
+  // Pick a random image every time
+  img.src = images[Math.floor(Math.random() * images.length)];
+
+  img.style.width = widths[Math.floor(Math.random() * widths.length)] + "px";
+  img.style.objectFit = "cover";
+
+  // random crop
+  img.style.objectPosition = Math.random() * 100 + "% center";
+
+  document.body.appendChild(img);
+});
+</script>
+
+  <p><!-- PROMPT: date --><br>©</p>
+</body>
+</html>

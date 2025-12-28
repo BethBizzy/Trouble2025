@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="You_Are_Here_Thalia_Hall">
+  <title>You_Are_Here_Thalia_Hall</title>
+
+  <style>
+    body {
+      font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+      font-size: 16px;
+      color: #14007a;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 40px;
+      box-sizing: border-box;
+      border: 1rem solid;
+      border-color: #f4c3f0 #e1cedb #e1cedb #f4c3f0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #f5d8f3;
+    }
+
+    .meta {
+      margin-top: 12px;
+      line-height: 1.5;
+      max-width: 900px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .block {
+      margin-top: 10px;
+    }
+
+    /* IMAGE BLOCK */
+    .image-block {
+      margin-top: 32px;
+      max-width: 900px;
+    }
+
+    .image-block img {
+      display: block;        /* forces vertical stacking */
+      width: 100%;
+      max-width: 700px;      /* optional cap */
+      margin-bottom: 24px;   /* spacing between images */
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+<a href="index.html" style="position: fixed;
+          top: 2.2rem;
+          left: 6.5%;
+          transform: translateX(-50%);
+          text-decoration: none;
+          color: inherit;
+          font-size: 4rem; /* 3 times larger than your original 3rem */
+          line-height: 1;">
+  ←
+</a>
+<br>
+  <h1>Trouble </h1>
+  <a href="../">Home</a> &gt; <a href="../works/">Exhibitions</a>
+
+  <div class="meta">
+    <div class="block"><span class="label">Title:</span> You Are Here</div>
+    <div class="block"><span class="label">Year:</span> 2015</div>
+    <div class="block"><span class="label">Medium:</span> Performance, projection installation</div>
+    <div class="block"><span class="label">Description:</span> Multimedia performance and projection installation.</div>
+    <div class="block">📍 Thalia Hall, Chicago, Il </div>
+       <div class="block"><span class="label">Curator:</span> Brent Heyl</div>
+  </div>
+
+  <div class="image-block">
+    <b>Imgs ↴</b><br><br>
+  </div>
+
+  <script>
+    const images = [
+     
+    ];
+
+    const container = document.querySelector(".image-block");
+
+    images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Apparition documentation image";
+      container.appendChild(img);
+    });
+  </script>
+
+  <p><br>©</p>
+
+</body>
+</html>
+
