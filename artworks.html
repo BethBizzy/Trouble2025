@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artworks</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 1rem;
+      background: #f4f4f4;
+    }
+
+    .images-container {
+      display: flex;
+      flex-wrap: wrap;          /* allow images to wrap */
+      justify-content: flex-start;
+      gap: 8px;                 /* space between images */
+      max-height: 800px;        /* fixed container height */
+      overflow-y: auto;         /* scroll if content overflows */
+      padding: 8px;
+    }
+
+    .images-container img {
+      flex: 1 1 calc(20% - 8px); /* 5 images across minus gap */
+      height: 150px;              /* fixed height */
+      object-fit: cover;          /* crop to fill height while keeping aspect ratio */
+      display: block;
+    }
+
+    /* Optional: responsive adjustments */
+    @media (max-width: 800px) {
+      .images-container img {
+        flex: 1 1 calc(33.33% - 8px); /* fewer images across on smaller screens */
+      }
+    }
+
+    @media (max-width: 500px) {
+      .images-container img {
+        flex: 1 1 calc(50% - 8px); /* two images across on tiny screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Artworks</h1>
+    <p><a href="/">↩ Home</a></p>
+  </header>
+
+  <div class="images-container">
+    <img src="image-assets/Projections Don Devore KDC/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Projections Don Devore KDC__1.png" alt="Projections 1" loading="lazy" />
+    <img src="image-assets/Vanitas IV/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Vanitas IV__3.jpg" alt="Vanitas IV 3" loading="lazy" />
+    <img src="image-assets/Studio Shots Final/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Studio Shots Final__9.jpg" alt="Studio Shots 9" loading="lazy" />
+    <img src="image-assets/Vanitas IV/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Vanitas IV__7.jpg" alt="Vanitas IV 7" loading="lazy" />
+    <img src="image-assets/Projections Don Devore KDC/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Projections Don Devore KDC__8.png" alt="Projections 8" loading="lazy" />
+    <img src="image-assets/Studio Shots Final/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Studio Shots Final__23.jpg" alt="Studio Shots 23" loading="lazy" />
+    <img src="image-assets/Vanitas IV/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Vanitas IV__12.jpg" alt="Vanitas IV 12" loading="lazy" />
+    <img src="image-assets/Projections Don Devore KDC/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Projections Don Devore KDC__2.png" alt="Projections 2" loading="lazy" />
+    <img src="image-assets/Studio Shots Final/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Studio Shots Final__21.jpg" alt="Studio Shots 21" loading="lazy" />
+    <img src="image-assets/Vanitas IV/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Vanitas IV__10.jpg" alt="Vanitas IV 10" loading="lazy" />
+    <img src="image-assets/Projections Don Devore KDC/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Projections Don Devore KDC__6.png" alt="Projections 6" loading="lazy" />
+    <img src="image-assets/Studio Shots Final/Trouble_Sam_Hilmer_Laura_Paris_Brooklyn_NewYork__Studio Shots Final__25.jpg" alt="Studio Shots 25" loading="lazy" />
+  </div>
+</body>
+</html>
